@@ -34,14 +34,15 @@ def riddle_native input
   input.permutation.max_by {|a| a[0] * (10*a[1] + a[2]) * (100*a[3] + 10*a[4] + a[5]) }
 end
 
-input = [1,2,3,4]
-p " ====== permutation ====== "
+input = (1..4).to_a
 p permutation_iter input
+p " ====== permutation ====== "
+input = (1..9).to_a
 puts "   user      system      real      total"
-puts Benchmark.measure { permutation input }
-puts Benchmark.measure { permutation_iter input }
-puts Benchmark.measure { input.permutation }
+puts Benchmark.measure { permutation(input).count }
+puts Benchmark.measure { permutation_iter(input).count }
+puts Benchmark.measure { input.permutation.count }
 puts " ====== riddle ====== "
-input = [1,2,3,4,5,6]
+input = (1..6).to_a
 puts Benchmark.measure { riddle_native input }
 
