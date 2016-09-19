@@ -31,17 +31,18 @@ def riddle input
 end
 
 def riddle_native input
-  input.permutation.max_by {|a| a[0] * (10*a[1] + a[2]) * (100*a[3] + 10*a[4] + a[5]) }
+  res = input.permutation.max_by {|a| a[0] * (10*a[1] + a[2]) * (100*a[3] + 10*a[4] + a[5]) }
+  "#{res[0]} * #{res[1]}#{res[2]} * #{res.last(3).join}"
 end
 
-input = [1,2,3,4]
+input = [1,2,3,4,5,6,7,8,9]
 p " ====== permutation ====== "
-p permutation_iter input
-puts "   user      system      real      total"
-puts Benchmark.measure { permutation input }
-puts Benchmark.measure { permutation_iter input }
-puts Benchmark.measure { input.permutation }
+Benchmark.bm(2) { |bm|
+  bm.report("recursion:") { permutation input }
+  bm.report("iterative:") { permutation_iter input }
+  bm.report("native:   ")     { input.permutation }
+}
 puts " ====== riddle ====== "
 input = [1,2,3,4,5,6]
-puts Benchmark.measure { riddle_native input }
+p riddle_native input
 
