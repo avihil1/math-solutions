@@ -15,7 +15,10 @@ on:
         type: boolean
         description: Include 🎉🤣 emojis
       environment:
-        type: environment
+        type: choice
+        options:
+          - dev
+          - prod
         default: dev
 
 jobs:
