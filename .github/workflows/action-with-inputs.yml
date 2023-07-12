@@ -28,7 +28,7 @@ jobs:
     steps:
     - name: "Test input from other runner"
       id: step1
-      run: return "Mingling"
+      run: echo Mingling
       
     - name: ${{ steps.step1.outputs.* }} Send greeting
       id: step2
