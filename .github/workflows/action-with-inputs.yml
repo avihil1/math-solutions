@@ -28,7 +28,7 @@ jobs:
     steps:
     - name: "Test input from other runner"
       id: step1
-      run: echo Mingling
+      run: echo "::set-output name=changed-fields-output::Mingling"
       
     - name: ${{ join(steps.greet.outputs.*, '\n') }} Send greeting
       id: step2
