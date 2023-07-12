@@ -27,10 +27,10 @@ jobs:
     steps:
     - name: "Test input from other runner"
       run: echo "mingling" 
-      outputs:
-        stam:
-          description: "input for next step"
-          type: string
+    outputs:
+      description: "mingling"
+      type: string
+      name: stam
           
   greet:
     runs-on: ubuntu-latest
