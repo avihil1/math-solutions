@@ -30,6 +30,6 @@ jobs:
       id: step1
       run: echo "randid=$(echo Mingling)" >> $GITHUB_OUTPUT
       
-    - name: ${{ join(steps.greet.outputs.randid, '\n') }} Send greeting
+    - name: ${{ join(steps.step1.outputs.randid, '\n') }} Send greeting
       id: step2
-      run: echo "${{ steps.greet.outputs.randid }} ${{ fromJSON('["", "🥳"]')[github.event.inputs.use-emoji == 'true'] }} ${{ github.event.inputs.name }}"
+      run: echo "${{ steps.step1.outputs.randid }} ${{ fromJSON('["", "🥳"]')[github.event.inputs.use-emoji == 'true'] }} ${{ github.event.inputs.name }}"
