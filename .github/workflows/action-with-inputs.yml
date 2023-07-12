@@ -36,5 +36,5 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - name: ${{ meet.outputs.stam }} Send greeting
+    - name: ${{ jobs.meet.outputs }} Send greeting
       run: echo "${{ github.event.inputs.message }} ${{ fromJSON('["", "🥳"]')[github.event.inputs.use-emoji == 'true'] }} ${{ github.event.inputs.name }}"
