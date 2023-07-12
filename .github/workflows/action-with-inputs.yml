@@ -30,6 +30,6 @@ jobs:
       id: step1
       run: echo Mingling
       
-    - name: ${{ steps.step1.outputs.* }} Send greeting
+    - name: ${{ steps.step1.outputs }} Send greeting
       id: step2
       run: echo "${{ github.event.inputs.message }} ${{ fromJSON('["", "🥳"]')[github.event.inputs.use-emoji == 'true'] }} ${{ github.event.inputs.name }}"
