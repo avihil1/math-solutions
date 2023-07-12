@@ -16,6 +16,7 @@ on:
         description: Include 🎉🤣 emojis
       environment:
         type: environment
+        default: dev
 
 jobs:
   meet:
