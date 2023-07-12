@@ -7,8 +7,8 @@ on:
         type: choice
         description: Who to greet
         options: 
+        - @avihil1
         - monalisa
-        - avihil1
       message:
         required: true
       use-emoji:
