@@ -8,7 +8,7 @@ on:
         description: Who to greet
         options: 
         - monalisa
-        - cschleiden
+        - avihil1
       message:
         required: true
       use-emoji:
@@ -18,9 +18,19 @@ on:
         type: environment
 
 jobs:
+  meet:
+    runs-on: ubuntu-latest
+    steps:
+    - name: "Test input from other runner"
+      run: echo "mingling" 
+      outputs:
+        stam:
+          description: "input for next step"
+          type: string
+          
   greet:
     runs-on: ubuntu-latest
 
     steps:
-    - name: Send greeting
+    - name: ${{ meet.outputs.stam }} Send greeting
       run: echo "${{ github.event.inputs.message }} ${{ fromJSON('["", "🥳"]')[github.event.inputs.use-emoji == 'true'] }} ${{ github.event.inputs.name }}"
