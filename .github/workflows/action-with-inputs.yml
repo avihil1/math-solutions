@@ -21,20 +21,15 @@ on:
           - prod
         default: dev
 
-jobs:
-  meet:
-    runs-on: ubuntu-latest
-    steps:
-    - name: "Test input from other runner"
-      run: echo "mingling" 
-    outputs:
-      description: "mingling"
-      type: string
-      name: stam
-          
+jobs:          
   greet:
     runs-on: ubuntu-latest
 
     steps:
-    - name: ${{ jobs.meet.outputs }} Send greeting
+    - name: "Test input from other runner"
+      id: step1
+      run: return "Mingling"
+      
+    - name: ${{ steps.step1.outputs.* }} Send greeting
+      id: step2
       run: echo "${{ github.event.inputs.message }} ${{ fromJSON('["", "🥳"]')[github.event.inputs.use-emoji == 'true'] }} ${{ github.event.inputs.name }}"
