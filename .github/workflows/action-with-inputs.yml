@@ -28,8 +28,8 @@ jobs:
     steps:
     - name: "Test input from other runner"
       id: step1
-      run: echo "::set-output name=changed-fields-output::Mingling"
+      run: echo "random-id=$(echo Mingling)" >> $GITHUB_OUTPUT
       
     - name: ${{ join(steps.greet.outputs.*, '\n') }} Send greeting
       id: step2
-      run: echo "${{ github.event.inputs.message }} ${{ fromJSON('["", "🥳"]')[github.event.inputs.use-emoji == 'true'] }} ${{ github.event.inputs.name }}"
+      run: echo "${{ github.event.inputs.random-id }} ${{ fromJSON('["", "🥳"]')[github.event.inputs.use-emoji == 'true'] }} ${{ github.event.inputs.name }}"
