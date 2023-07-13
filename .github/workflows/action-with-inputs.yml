@@ -22,13 +22,17 @@ on:
           - prod
         default: dev
 
-jobs:          
+jobs:
+  meet:
+    runs-on: ubuntu-latest
+    run: echo "some runner"
+    
   greet:
     runs-on: ubuntu-latest
 
     steps:
     - name: "Step that should fail"
-      run: return "asdf"
+      run: echo "just another step"
     - name: "Test input from other runner"
       id: step1
       run: echo "randid=$(echo Mingling)" >> $GITHUB_OUTPUT
