@@ -26,7 +26,8 @@ jobs:
   meet:
     runs-on: ubuntu-latest
     steps: 
-      - run: echo "some runner"
+      - run: return "some runner"
+        name: Fail
     
   greet:
     runs-on: ubuntu-latest
