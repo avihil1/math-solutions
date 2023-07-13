@@ -23,7 +23,7 @@ on:
         default: dev
 
 jobs:
-  meet:
+  meet-should-fail:
     runs-on: ubuntu-latest
     steps: 
       - run: return "some runner"
