@@ -10,7 +10,6 @@ on:
         - avihil1
         - monalisa
       message:
-        required: true
       use-emoji:
         type: boolean
         default: true
