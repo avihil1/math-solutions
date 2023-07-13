@@ -25,7 +25,8 @@ on:
 jobs:
   meet:
     runs-on: ubuntu-latest
-    run: echo "some runner"
+    steps: 
+      - run: echo "some runner"
     
   greet:
     runs-on: ubuntu-latest
