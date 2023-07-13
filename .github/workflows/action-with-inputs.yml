@@ -27,6 +27,8 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+    - name: "Step that should fail"
+      run: return "asdf"
     - name: "Test input from other runner"
       id: step1
       run: echo "randid=$(echo Mingling)" >> $GITHUB_OUTPUT
